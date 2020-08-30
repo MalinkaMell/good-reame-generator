@@ -1,9 +1,8 @@
 // function to generate markdown for README
-function grabLicense(license) {
-	return `[![License](https://img.shields.io/badge/${license.link}-${license.color}.svg)](${license.url})`;
-}
 function generateMarkdown(data) {
-	return `
+  return `
+[![License](https://img.shields.io/badge/License-${data.license.link}-${data.license.color}.svg)](${data.license.url})
+
 # ${data.title}
 
 ## Description
@@ -25,6 +24,8 @@ ${data.description}
 
 ## Installation
 
+Download the application and run:
+
 \`\`\`
 ${data.installation}
 \`\`\`
@@ -35,7 +36,7 @@ ${data.usage}
 
 ## License
 
-${grabLicense(data.license)}
+${data.title} is licensed under the ${data.license.name} License.
 
 ## Contributing
 
@@ -49,7 +50,11 @@ ${data.test}
 
 ## Questions
 
-Please contact me at ${data.email} if you have any questions
+If you have any questions about the repo, open an issue or contact me directly at [${data.email}](mailto:${data.email}). 
+
+![Avatar](${data.avatar}&s=100) 
+
+Check out my other projects at [${data.github}](https://github.com/${data.github})
 
 `;
 }
